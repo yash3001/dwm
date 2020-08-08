@@ -29,6 +29,16 @@ static const unsigned int alphas[][3]      = {
 	[SchemeSel]  = { OPAQUE, baralpha, borderalpha },
 };
 
+typedef struct {
+	const char *name;
+	const void *cmd;
+} Sp;
+const char *spcmd1[] = {"st", "-n", "spterm", "-g", "120x34", NULL };
+static Sp scratchpads[] = {
+	/* name          cmd  */
+	{"spterm",      spcmd1},
+};
+
 /* tagging */
 static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
 
@@ -38,11 +48,9 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class                instance    title       tags mask     isfloating   monitor */
-	{ "firefox",            NULL,       NULL,       2,            0,           -1 },
-	//{ "dolphin",            NULL,       NULL,       5,            0,           -1 },
-	//{ "Transmission-gtk",   NULL,       NULL,       7,            1,           -1 },
-	//{ "Gimp",               NULL,       NULL,       6,            1,           -1 },
-	//{ "kdenlive",           NULL,       NULL,       6,            1,           -1 },
+	{ "Gimp",	            NULL,			NULL,		0,				1,			 -1 },
+	{ "Firefox",            NULL,			NULL,		1 << 8,			0,			 -1 },
+	{ NULL,		            "spterm",		NULL,		SPTAG(0),		1,			 -1 },
 };
 
 /* layout(s) */
@@ -82,6 +90,7 @@ static const char *brdowncmd[] = { "xbacklight", "-dec", "2", NULL };
 static const char *volumeupcmd[] =   { "/home/yash/.config/dwm/volume_control/up.sh", NULL };
 static const char *volumedowncmd[] = { "/home/yash/.config/dwm/volume_control/down.sh", NULL };
 static const char *volumemutecmd[] = { "/home/yash/.config/dwm/volume_control/mute.sh", NULL };
+
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -123,6 +132,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
+	{ MODKEY|Mod1Mask,            	XK_s,  	   togglescratch,  {.ui = 0 } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -145,7 +155,7 @@ static Button buttons[] = {
 	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
-	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
+	{ ClkClientWin,         MODKEY,         Button1,        resizemouse,    {0} },
 	{ ClkTagBar,            0,              Button1,        view,           {0} },
 	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
