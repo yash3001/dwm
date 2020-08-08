@@ -68,11 +68,9 @@ static const char *firefox[]   = { "firefox", NULL };
 static const char *brupcmd[]   = { "xbacklight", "-inc", "2", NULL };
 static const char *brdowncmd[] = { "xbacklight", "-dec", "2", NULL };
 
-static const char *volumeupcmd[] =   { "amixer", "-q", "set", "Master", "5%+", NULL };
-static const char *volumedowncmd[] = { "amixer", "-q", "set", "Master", "5%-", NULL };
-static const char *volumemutecmd[] = { "amixer", "-qD", "pulse", "set", "Master", "1+", "toggle", NULL };
-
-
+static const char *volumeupcmd[] =   { "/home/yash/.config/dwm/volume_control/up.sh", NULL };
+static const char *volumedowncmd[] = { "/home/yash/.config/dwm/volume_control/down.sh", NULL };
+static const char *volumemutecmd[] = { "/home/yash/.config/dwm/volume_control/mute.sh", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
