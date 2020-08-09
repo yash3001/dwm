@@ -65,6 +65,8 @@ static const Layout layouts[] = {
 	{ " | ><> | ",      NULL },    /* no layout function means floating behavior */
 	{ " | |M| | ",      centeredmaster },
 	{ " | >M> |",      centeredfloatingmaster },
+	{ " | === |",      bstackhoriz },
+	{ " | TTT |",      bstack },
 	{ NULL,       NULL },
 
 };
@@ -117,9 +119,11 @@ static Key keys[] = {
 	{ MODKEY,                       XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[3]} },
-	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[4]} },
+//	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
+//	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[3]} },
+//	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[4]} },
+//	{ MODKEY,                       XK_q,      setlayout,      {.v = &layouts[5]} },
+//	{ MODKEY,                       XK_w,      setlayout,      {.v = &layouts[6]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ControlMask,		    XK_comma,  cyclelayout,    {.i = -1 } },
 	{ MODKEY|ControlMask,           XK_period, cyclelayout,    {.i = +1 } },
