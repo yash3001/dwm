@@ -63,8 +63,10 @@ static const Layout layouts[] = {
 	{ " |  | ",      tile },    /* first entry is default */
 	{ " |  | ",      monocle },
 	{ " | ><> | ",      NULL },    /* no layout function means floating behavior */
-	{ "|M|",      centeredmaster },
-	{ ">M>",      centeredfloatingmaster },
+	{ " | |M| | ",      centeredmaster },
+	{ " | >M> |",      centeredfloatingmaster },
+	{ NULL,       NULL },
+
 };
 
 /* key definitions */
@@ -82,6 +84,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[]  = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]   = { "terminator", NULL };
+static const char *stcmd[]     = { "st", NULL };
 static const char *firefox[]   = { "firefox", NULL };
 
 static const char *brupcmd[]   = { "xbacklight", "-inc", "2", NULL };
@@ -96,7 +99,8 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY|Mod1Mask,              XK_x,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|Mod1Mask,              XK_b,      spawn,          {.v = firefox } },
-	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_Return, spawn,          {.v = stcmd   } },
+	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 //	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 //	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -117,6 +121,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[3]} },
 	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[4]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
+	{ MODKEY|ControlMask,		    XK_comma,  cyclelayout,    {.i = -1 } },
+	{ MODKEY|ControlMask,           XK_period, cyclelayout,    {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
