@@ -96,6 +96,7 @@ static const char *volumeupcmd[] =   { "/home/yash/.config/dwm/volume_control/up
 static const char *volumedowncmd[] = { "/home/yash/.config/dwm/volume_control/down.sh", NULL };
 static const char *volumemutecmd[] = { "/home/yash/.config/dwm/volume_control/mute.sh", NULL };
 
+static const char *poweroffcmd[]   = { "/home/yash/.config/dwm/automate_scripts/shutdown.sh", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -152,7 +153,8 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_s,      quit,           {0} },
+//  { MODKEY|ShiftMask,             XK_s,      quit,           {0} },
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = poweroffcmd } },
 };
 
 /* button definitions */
