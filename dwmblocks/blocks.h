@@ -15,11 +15,11 @@ static const Block blocks[] = {
 
 	//{"", "~/bin/statusbar/clock",						5,		0},
 
-    {"", "/home/yash/.config/dwm/dwmblock_scripts/sound.sh", 0, 11},
+    {"", "/home/yash/.config/dwm/dwmblocks/dwmblock_scripts/sound.sh", 0, 11},
 
-    {"", "/home/yash/.config/dwm/dwmblock_scripts/battery.sh", 10, 0},
+    {"", "/home/yash/.config/dwm/dwmblocks/dwmblock_scripts/battery.sh", 10, 0},
 
-    {"", "/home/yash/.config/dwm/dwmblock_scripts/time.sh", 60, 0}
+    {"", "/home/yash/.config/dwm/dwmblocks/dwmblock_scripts/time.sh", 60, 0}
 };
 
 //sets delimeter between status commands. NULL character ('\0') means no delimeter.
