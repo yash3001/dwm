@@ -100,62 +100,79 @@ static const char *poweroffcmd[]   = { "/home/yash/.config/dwm/automate_scripts/
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY|Mod1Mask,              XK_x,      spawn,          {.v = dmenucmd } },
-	{ MODKEY|Mod1Mask,              XK_b,      spawn,          {.v = firefox } },
-	{ MODKEY,                       XK_Return, spawn,          {.v = stcmd   } },
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_b,      togglebar,      {0} },
-//	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
-//	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_Right,  focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_Left,   focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
-	{ ControlMask|Mod1Mask,         XK_Right,  setmfact,       {.f = +0.01 } },
-	{ ControlMask|Mod1Mask,         XK_Left,   setmfact,       {.f = -0.01 } },
-//	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.02} },
-//	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.02} },
-	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
-	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY,                       XK_q,      killclient,     {0} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-//	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-//	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[3]} },
-//	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[4]} },
-//	{ MODKEY,                       XK_q,      setlayout,      {.v = &layouts[5]} },
-//	{ MODKEY,                       XK_w,      setlayout,      {.v = &layouts[6]} },
-	{ MODKEY,                       XK_space,  setlayout,      {0} },
-	{ MODKEY|ControlMask,		    XK_comma,  cyclelayout,    {.i = -1 } },
-	{ MODKEY|ControlMask,           XK_period, cyclelayout,    {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
-	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
-	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ 0, 			   XF86XK_MonBrightnessUp, spawn,          {.v = brupcmd } },
-	{ 0, 			 XF86XK_MonBrightnessDown, spawn,          {.v = brdowncmd } },
-	{ 0, 			  XF86XK_AudioLowerVolume, spawn,          {.v = volumedowncmd } },
-	{ 0, 			  XF86XK_AudioRaiseVolume, spawn,          {.v = volumeupcmd } },
-	{ 0, 			  XF86XK_AudioMute,        spawn,          {.v = volumemutecmd } },
-	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
-	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
-	{ MODKEY|Mod1Mask,            	XK_s,  	   togglescratch,  {.ui = 0 } },
-	TAGKEYS(                        XK_1,                      0)
-	TAGKEYS(                        XK_2,                      1)
-	TAGKEYS(                        XK_3,                      2)
-	TAGKEYS(                        XK_4,                      3)
-	TAGKEYS(                        XK_5,                      4)
-	TAGKEYS(                        XK_6,                      5)
-	TAGKEYS(                        XK_7,                      6)
-	TAGKEYS(                        XK_8,                      7)
-	TAGKEYS(                        XK_9,                      8)
+    
+    /* My applications */
+	{ MODKEY|Mod1Mask,              XK_x,      spawn,          {.v = dmenucmd } },      // Dmenu_run
+	{ MODKEY|Mod1Mask,              XK_b,      spawn,          {.v = firefox } },       // firefox
+	{ MODKEY,                       XK_Return, spawn,          {.v = stcmd   } },       // st terminal
+	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },       // terminator
+
+    /* Layouts */
+	{ MODKEY|ControlMask,           XK_period, cyclelayout,    {.i = +1 } },            // Cycle through the available layouts moving forward
+	{ MODKEY|ControlMask,		    XK_comma,  cyclelayout,    {.i = -1 } },            // Cycle through the available layouts moving backward
+	{ MODKEY,                       XK_space,  setlayout,      {0} },                   // Toggle between the previous and current layout
+	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },    // Set tiling layout
+	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },    // Set fullscreen layout
+//	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },    /*
+//	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[3]} },      \
+//	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[4]} },        Layouts that dont have any key binding currently
+//	{ MODKEY,                       XK_q,      setlayout,      {.v = &layouts[5]} },      /
+//	{ MODKEY,                       XK_w,      setlayout,      {.v = &layouts[6]} },    */
+	{ MODKEY|ShiftMask,             XK_t,      togglefloating, {0} },                   // Force floating into tiling
+
+    /* Window Navigation */
+	{ MODKEY,                       XK_Tab,    view,           {0} },                   // Toggle between the previous and the current tag
+	{ ControlMask|Mod1Mask,         XK_Right,  setmfact,       {.f = +0.01 } },         // Increment the master area (mod1mask is altkey)
+	{ ControlMask|Mod1Mask,         XK_Left,   setmfact,       {.f = -0.01 } },         // Decrement the master area
+	{ MODKEY,                       XK_Right,  focusstack,     {.i = +1 } },            // Move the focus to next window
+	{ MODKEY,                       XK_Left,   focusstack,     {.i = -1 } },            // Move the focus to previous window
+	{ MODKEY,                       XK_b,      togglebar,      {0} },                   // Toggle the status bar
+	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },            // Increment the number of windows in the master area by 1
+	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },            // Decrement the number of windows in the master area by 1
+	{ Mod1Mask|ShiftMask,           XK_Return, zoom,           {0} },                   // I still dont know what that does
+
+    /* Window Actions */
+	{ MODKEY,                       XK_q,      killclient,     {0} },                   // Kill the focused client
+
+    /* Manipulating Gaps */
+	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },            // Increase gaps by 1 
+	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },            // Decrease gaps by 1
+	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },            // Disable gaps
+
+    /* Scratchpad */
+	{ MODKEY|Mod1Mask,            	XK_s,  	   togglescratch,  {.ui = 0 } },            // Toggle scratchpad
+
+    /* Tags */
+	TAGKEYS(                        XK_1,                      0)                       //------
+	TAGKEYS(                        XK_2,                      1)                       //     |
+	TAGKEYS(                        XK_3,                      2)                       //     |
+	TAGKEYS(                        XK_4,                      3)                       //     |
+	TAGKEYS(                        XK_5,                      4)                       //      Move to the specific tag. Pressing mod+0 selects all tags
+	TAGKEYS(                        XK_6,                      5)                       //     |   
+	TAGKEYS(                        XK_7,                      6)                       //     |
+	TAGKEYS(                        XK_8,                      7)                       //     |
+	TAGKEYS(                        XK_9,                      8)                       //------    
+	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },           // Select all tags 
+	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },           // Broadcast the current window to all the tags. (Broadcasting not copying)
+
+    /* Dwm Actions */
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = poweroffcmd } },   // Launch the custom poweroff script that I made using dmenu
 //  { MODKEY|ShiftMask,             XK_s,      quit,           {0} },
-	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = poweroffcmd } },
+
+    /* Multimedia Keys */
+	{ 0, 			 XF86XK_MonBrightnessUp,   spawn,          {.v = brupcmd } },       // Increase brightness by 2%
+	{ 0, 			 XF86XK_MonBrightnessDown, spawn,          {.v = brdowncmd } },     // Decrease brightness by 2%
+	{ 0, 			 XF86XK_AudioLowerVolume,  spawn,          {.v = volumedowncmd } }, // Increase volume by 2%
+	{ 0, 			 XF86XK_AudioRaiseVolume,  spawn,          {.v = volumeupcmd } },   // Decrease volume by 2%
+	{ 0, 			 XF86XK_AudioMute,         spawn,          {.v = volumemutecmd } }, // Mute audio
+
+    /* Multi monitor */
+//  { MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },            // \
+//	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },            //  \
+//	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },            //   These keybindings are usefull when on multimonitor 
+//	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },            // /
 };
+
 
 /* button definitions */
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
