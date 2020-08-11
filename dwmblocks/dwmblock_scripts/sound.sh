@@ -19,8 +19,8 @@ then
     else
 	    icon="🔉"
     fi
-    printf "%s %s%% \\n" "$icon" "$vol"
+    printf " %s %s%% \\n" "$icon" "$vol"
 else
     icon="🔇"
-    printf "%s %s \\n" "$icon" "$vol"
+    printf " %s %s \\n" "$icon" "$vol"
 fi
