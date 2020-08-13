@@ -104,8 +104,8 @@ static Key keys[] = {
     /* My applications */
 	{ MODKEY|Mod1Mask,              XK_x,      spawn,          {.v = dmenucmd } },      // Dmenu_run
 	{ MODKEY|Mod1Mask,              XK_b,      spawn,          {.v = firefox } },       // firefox
-	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },       // terminator
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = stcmd   } },       // st terminal
+	{ MODKEY,                       XK_Return, spawn,          {.v = stcmd   } },       // st terminal
+	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },       // terminator
 
     /* Layouts */
 	{ MODKEY|ControlMask,           XK_period, cyclelayout,    {.i = +1 } },            // Cycle through the available layouts moving forward
