@@ -1,6 +1,6 @@
 #!/bin/sh
 
-choice=$(echo -e "logout\nshutdown" | dmenu -c -h 40 -l 2)
+choice=$(echo -e "logout\nshutdown\nrestart" | dmenu -c -h 40 -l 3)
 
 if [[ ($choice == "logout") ]]
 then
@@ -22,3 +22,12 @@ then
     fi
 fi
 
+if [[ ($choice == "restart") ]]
+then
+    ans=$(echo -e "no\nyes" | dmenu -c -h 40 -p "Do you want to reboot")
+    
+    if [[ ($ans == "yes") ]]
+    then
+        reboot
+    fi
+fi
