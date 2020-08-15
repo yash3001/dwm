@@ -98,6 +98,8 @@ static const char *volumemutecmd[] = { "/home/yash/.config/dwm/volume_control/mu
 
 static const char *poweroffcmd[]   = { "/home/yash/.config/dwm/automate_scripts/shutdown.sh", NULL };
 
+static const char *screenshotcmd[] = { "/home/yash/.config/dwm/automate_scripts/screenshot.sh", NULL };
+
 static Key keys[] = {
 	/* modifier                     key        function        argument */
     
@@ -165,6 +167,9 @@ static Key keys[] = {
 	{ 0, 			 XF86XK_AudioLowerVolume,  spawn,          {.v = volumedowncmd } }, // Increase volume by 2%
 	{ 0, 			 XF86XK_AudioRaiseVolume,  spawn,          {.v = volumeupcmd } },   // Decrease volume by 2%
 	{ 0, 			 XF86XK_AudioMute,         spawn,          {.v = volumemutecmd } }, // Mute audio
+
+    /* Screenshot */
+	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = screenshotcmd } }, // Take screenshot
 
     /* Multi monitor */
 //  { MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },            // \
