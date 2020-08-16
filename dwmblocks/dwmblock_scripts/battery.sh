@@ -11,7 +11,10 @@ then
     elif [[ ${capacity:0:-1} -gt "75" ]]
     then 
         status=""
-    elif [[ ${capacity:0:-1} -gt "50" ]]
+    elif [[ ${capacity:0:-1} -gt "60" ]]
+    then 
+        status=""
+    elif [[ ${capacity:0:-1} -gt "40" ]]
     then 
         status=""
     elif [[ ${capacity:0:-1} -gt "35" ]]
