@@ -89,8 +89,8 @@ static const char *termcmd[]   = { "terminator", NULL };
 static const char *stcmd[]     = { "st", NULL };
 static const char *firefox[]   = { "firefox", NULL };
 
-static const char *brupcmd[]   = { "xbacklight", "-inc", "2", NULL };
-static const char *brdowncmd[] = { "xbacklight", "-dec", "2", NULL };
+static const char *brupcmd[]   = { "xbacklight", "-inc", "1", NULL };
+static const char *brdowncmd[] = { "xbacklight", "-dec", "1", NULL };
 
 static const char *volumeupcmd[] =   { "/home/yash/.config/dwm/volume_control/up.sh", NULL };
 static const char *volumedowncmd[] = { "/home/yash/.config/dwm/volume_control/down.sh", NULL };
