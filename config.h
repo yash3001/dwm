@@ -100,6 +100,8 @@ static const char *poweroffcmd[]   = { "/home/yash/.config/dwm/automate_scripts/
 
 static const char *screenshotcmd[] = { "/home/yash/.config/dwm/automate_scripts/screenshot.sh", NULL };
 
+static const char *screenlockcmd[] = { "i3lock-fancy", NULL };
+
 static Key keys[] = {
 	/* modifier                     key        function        argument */
     
@@ -160,6 +162,7 @@ static Key keys[] = {
     /* Dwm Actions */
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = poweroffcmd } },   // Launch the custom poweroff script that I made using dmenu
 //  { MODKEY|ShiftMask,             XK_s,      quit,           {0} },
+	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = screenlockcmd } }, // Launch the i3lock-fancy screen locker
 
     /* Multimedia Keys */
 	{ 0, 			 XF86XK_MonBrightnessUp,   spawn,          {.v = brupcmd } },       // Increase brightness by 2%
