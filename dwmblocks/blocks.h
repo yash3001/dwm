@@ -15,6 +15,8 @@ static const Block blocks[] = {
 
 	//{"", "~/bin/statusbar/clock",						5,		0},
 
+    {"", "/home/yash/.config/dwm/dwmblocks/dwmblock_scripts/netspeed.sh", 2, 0},
+
     {"", "/home/yash/.config/dwm/dwmblocks/dwmblock_scripts/battery.sh", 10, 0},
 
     {"", "/home/yash/.config/dwm/dwmblocks/dwmblock_scripts/sound.sh", 0, 11},

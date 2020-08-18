@@ -28,4 +28,4 @@ then
         twmnc -t "Warning" -c "Low battery, please connect the charger" -d 10000 
     fi
 fi
-printf %s%s%% " $status " "$capacity "
+printf ""%s%s%% " $status " "$capacity "
