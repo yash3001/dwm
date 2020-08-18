@@ -33,7 +33,7 @@ if dev != 0 and interval !=0:
     tx_bytes_before = int(f.read())
     f.close()
     
-    time.sleep(int(interval))
+    time.sleep(float(interval))
     
     f = open(path_rx, "r")
     rx_bytes_after = int(f.read())
@@ -42,7 +42,7 @@ if dev != 0 and interval !=0:
     tx_bytes_after = int(f.read())
     f.close()
     
-    speed_rx = (rx_bytes_after-rx_bytes_before)/1000*int(interval)
-    speed_tx = (tx_bytes_after-tx_bytes_before)/1000*int(interval)
+    speed_rx = (rx_bytes_after-rx_bytes_before)/1000*float(interval)
+    speed_tx = (tx_bytes_after-tx_bytes_before)/1000*float(interval)
     #print("{:.1f} kb/s".format(speed))
     print("{:.1f}kb/s {:.1f}kb/s".format(speed_rx, speed_tx))
