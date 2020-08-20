@@ -21,6 +21,8 @@ static const Block blocks[] = {
 
     {"", "/home/yash/.config/dwm/dwmblocks/dwmblock_scripts/sound.sh", 0, 11},
 
+    {"", "/home/yash/.config/dwm/dwmblocks/dwmblock_scripts/pacman.sh", 1800, 0},
+
     {"", "/home/yash/.config/dwm/dwmblocks/dwmblock_scripts/time.sh", 1, 0}
 };
 
