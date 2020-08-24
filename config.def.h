@@ -96,6 +96,10 @@ static const char *volumeupcmd[] =   { "/home/yash/.config/dwm/volume_control/up
 static const char *volumedowncmd[] = { "/home/yash/.config/dwm/volume_control/down.sh", NULL };
 static const char *volumemutecmd[] = { "/home/yash/.config/dwm/volume_control/mute.sh", NULL };
 
+static const char *cmustogglecmd[] =   { "/home/yash/.config/dwm/automate_scripts/cmus_start_stop.sh", NULL };
+static const char *cmusnextcmd[] = { "/home/yash/.config/dwm/automate_scripts/cmus_next.sh", NULL };
+static const char *cmuspreviouscmd[] = { "/home/yash/.config/dwm/automate_scripts/cmus_previous.sh", NULL };
+
 static const char *poweroffcmd[]   = { "/home/yash/.config/dwm/automate_scripts/shutdown.sh", NULL };
 
 static const char *screenshotcmd[] = { "/home/yash/.config/dwm/automate_scripts/screenshot.sh", NULL };
@@ -170,6 +174,9 @@ static Key keys[] = {
 	{ 0, 			 XF86XK_AudioLowerVolume,  spawn,          {.v = volumedowncmd } }, // Increase volume by 2%
 	{ 0, 			 XF86XK_AudioRaiseVolume,  spawn,          {.v = volumeupcmd } },   // Decrease volume by 2%
 	{ 0, 			 XF86XK_AudioMute,         spawn,          {.v = volumemutecmd } }, // Mute audio
+	{ 0, 			 XF86XK_AudioPlay,         spawn,          {.v = cmustogglecmd } }, // Toggle cmus
+	{ 0, 			 XF86XK_AudioNext,         spawn,          {.v = cmusnextcmd } },   // Previous track in cmus
+	{ 0, 			 XF86XK_AudioPrev,         spawn,          {.v = cmuspreviouscmd }},// Next track in cmus 
 
     /* Screenshot */
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = screenshotcmd } }, // Take screenshot
